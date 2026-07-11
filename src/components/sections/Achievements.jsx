@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionTitle from "../ui/SectionTitle";
 import {
   FaTrophy,
   FaCode,
@@ -10,7 +11,7 @@ const achievements = [
   {
     icon: FaCode,
     title: "500+",
-    description: "LeetCode Problems Solved",
+    description: "DSA Problems Solved",
   },
   {
     icon: FaTrophy,
@@ -29,20 +30,45 @@ const achievements = [
   },
 ];
 
+const highlights = [
+  "Problem Solving",
+  "Hackathons",
+  "Leadership",
+  "Sports",
+];
+
 function Achievements() {
   return (
     <section id="achievements" className="section-padding">
       <div className="container-custom">
-        <motion.h2
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-14"
-        >
-          My <span className="gradient-text">Achievements</span>
-        </motion.h2>
+        <div className="text-center mb-16">
+          <SectionTitle
+            title="Beyond"
+            highlight="Coding"
+          />
+        </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* TOP STRIP */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {highlights.map((item) => (
+            <span
+              key={item}
+              className="
+                px-5 py-2
+                rounded-full
+                border border-slate-800
+                bg-slate-900/40
+                text-slate-300
+                text-sm
+              "
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+
+        {/* ACHIEVEMENTS */}
+        <div className="grid md:grid-cols-2 gap-8">
           {achievements.map((item, index) => {
             const Icon = item.icon;
 
@@ -50,33 +76,48 @@ function Achievements() {
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
                 viewport={{ once: true }}
                 transition={{
-                  delay: index * 0.1,
+                  delay: index * 0.08,
                 }}
                 className="
-                  glass
-                  rounded-2xl
-                  p-8
-                  hover:-translate-y-2
+                  flex gap-5
+                  border border-slate-800
+                  rounded-3xl
+                  p-6
+                  bg-slate-900/30
                   hover:border-cyan-500/30
                   transition-all
                   duration-300
                 "
               >
-                <Icon
-                  size={32}
-                  className="text-cyan-400"
-                />
+                <div
+                  className="
+                    h-14 w-14
+                    rounded-2xl
+                    border border-cyan-500/20
+                    bg-slate-900
+                    flex items-center justify-center
+                    text-cyan-400
+                    shrink-0
+                  "
+                >
+                  <Icon size={22} />
+                </div>
 
-                <h3 className="mt-5 text-xl font-bold">
-                  {item.title}
-                </h3>
+                <div>
+                  <h3 className="text-xl font-bold text-white">
+                    {item.title}
+                  </h3>
 
-                <p className="mt-2 text-slate-400">
-                  {item.description}
-                </p>
+                  <p className="text-slate-400 mt-2">
+                    {item.description}
+                  </p>
+                </div>
               </motion.div>
             );
           })}

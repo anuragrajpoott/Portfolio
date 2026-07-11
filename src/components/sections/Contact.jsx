@@ -4,6 +4,7 @@ import {
   FaLinkedin,
   FaEnvelope,
 } from "react-icons/fa";
+import SectionTitle from "../ui/SectionTitle";
 
 const socialLinks = [
   {
@@ -26,48 +27,66 @@ const socialLinks = [
 function Contact() {
   return (
     <section id="contact" className="section-padding">
-      <div className="container-custom max-w-4xl">
+      <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
           viewport={{ once: true }}
-          className="
-            glass
-            rounded-3xl
-            p-10 md:p-14
-            text-center
-          "
+          className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Let's <span className="gradient-text">Connect</span>
-          </h2>
+          <SectionTitle
+            title="Open To"
+            highlight="Opportunities"
+          />
 
-          <p className="text-slate-400 text-lg leading-8 max-w-2xl mx-auto">
-            I'm actively seeking Software Engineer and Full Stack
-            Developer opportunities. If you have an exciting project,
-            opportunity, or just want to connect, feel free to reach out.
+          <p className="text-lg text-slate-400 leading-8 max-w-2xl mx-auto mt-8">
+            I'm currently seeking Software Development
+            Engineer and Full Stack Developer opportunities
+            where I can contribute, learn from experienced
+            teams, and build impactful products.
           </p>
 
-          <a
-            href="mailto:anuragrajpoot2468@gmail.com"
-            className="
-              inline-block
-              mt-8
-              px-8 py-4
-              rounded-xl
-              bg-linear-to-r
-              from-blue-600
-              to-purple-600
-              hover:scale-105
-              transition-all
-              duration-300
-              font-semibold
-            "
-          >
-            Say Hello 👋
-          </a>
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <a
+              href="mailto:anuragrajpoot2468@gmail.com"
+              className="
+                px-8 py-4
+                rounded-xl
+                bg-linear-to-r
+                from-cyan-500
+                to-blue-600
+                text-white
+                font-semibold
+                hover:-translate-y-1
+                transition-all
+              "
+            >
+              Get In Touch
+            </a>
 
-          <div className="flex justify-center gap-5 mt-10">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="
+                px-8 py-4
+                rounded-xl
+                border border-slate-800
+                bg-slate-900/40
+                text-slate-300
+                hover:text-white
+                hover:border-cyan-500/30
+                transition-all
+              "
+            >
+              View Resume
+            </a>
+          </div>
+
+          <div className="flex justify-center gap-5 mt-12">
             {socialLinks.map((item) => {
               const Icon = item.icon;
 
@@ -79,17 +98,18 @@ function Contact() {
                   rel="noreferrer"
                   aria-label={item.label}
                   className="
-                    glass
-                    p-4
+                    h-12 w-12
                     rounded-xl
-                    text-slate-300
+                    border border-slate-800
+                    bg-slate-900/40
+                    flex items-center justify-center
+                    text-slate-400
                     hover:text-white
-                    hover:-translate-y-1
+                    hover:border-cyan-500/30
                     transition-all
-                    duration-300
                   "
                 >
-                  <Icon size={24} />
+                  <Icon size={20} />
                 </a>
               );
             })}

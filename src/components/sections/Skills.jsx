@@ -1,62 +1,70 @@
 import { motion } from "framer-motion";
+import SectionTitle from "../ui/SectionTitle";
 
-const skills = [
-  "React",
-  "Node.js",
-  "Express.js",
-  "MongoDB",
-  "TypeScript",
-  "JavaScript",
-  "Redux",
-  "Tailwind CSS",
-  "Git",
-  "REST APIs",
-  "JWT",
-  "Cloudinary",
+const skillGroups = [
+  {
+    title: "Frontend",
+    skills: ["React", "JavaScript", "TypeScript", "Redux", "Tailwind CSS"],
+  },
+  {
+    title: "Backend",
+    skills: ["Node.js", "Express.js", "REST APIs", "JWT"],
+  },
+  {
+    title: "Database & Cloud",
+    skills: ["MongoDB", "Cloudinary"],
+  },
+  {
+    title: "Tools",
+    skills: ["Git", "GitHub"],
+  },
 ];
 
 function Skills() {
   return (
     <section id="skills" className="section-padding">
       <div className="container-custom">
-        <motion.h2
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-14"
-        >
-          My <span className="gradient-text">Skills</span>
-        </motion.h2>
+        <SectionTitle title="Technical" highlight="Expertise" />
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {skills.map((skill, index) => (
+        <div className="grid md:grid-cols-2 gap-10 mt-16">
+          {skillGroups.map((group, index) => (
             <motion.div
-              key={skill}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
+              key={group.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.4,
-                delay: index * 0.05,
+                duration: 0.5,
+                delay: index * 0.1,
               }}
-              className="
-                glass
-                rounded-2xl
-                p-6
-                hover:-translate-y-2
-                hover:border-cyan-500/40
-                hover:shadow-lg
-                transition-all
-                duration-300
-                cursor-default
-              "
+              className="border border-slate-800 rounded-3xl p-8 bg-slate-900/30"
             >
-              <h3 className="font-semibold text-lg text-slate-200">
-                {skill}
+              <h3 className="text-xl font-semibold text-white mb-6">
+                {group.title}
               </h3>
+
+              <div className="flex flex-wrap gap-3">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="
+                      px-4
+                      py-2
+                      rounded-full
+                      border
+                      border-slate-700
+                      text-slate-300
+                      text-sm
+                      hover:border-cyan-500/40
+                      hover:text-white
+                      transition-all
+                      duration-300
+                    "
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>

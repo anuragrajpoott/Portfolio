@@ -1,84 +1,101 @@
 import { motion } from "framer-motion";
+import SectionTitle from "../ui/SectionTitle";
+import { FaBriefcase } from "react-icons/fa";
 
-const experiences = [
-  {
-    role: "Full Stack SDE Intern",
-    company: "Ideal Minds",
-    duration: "June 2025 – July 2025",
-    points: [
-      "Developed REST APIs for the Steepi Fitness Application.",
-      "Built reusable React components to improve maintainability and development speed.",
-      "Worked across the MERN stack delivering production-ready features.",
-    ],
-  },
-];
+const experience = {
+  role: "Full Stack SDE Intern",
+  company: "Ideal Minds",
+  duration: "June 2025 – July 2025",
+  tech: [
+    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "REST APIs",
+  ],
+  points: [
+    "Developed REST APIs for the Steepi Fitness application.",
+    "Built reusable React components to improve maintainability and development speed.",
+    "Worked across the MERN stack delivering production-ready features.",
+    "Collaborated on feature implementation and debugging to improve application reliability.",
+  ],
+};
 
 function Experience() {
   return (
     <section id="experience" className="section-padding">
       <div className="container-custom">
-        <motion.h2
-          initial={{ opacity: 0, y: 25 }}
+        <div className="text-center mb-16">
+          <SectionTitle title="Work" highlight="Experience" />
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-14"
+          transition={{ duration: 0.5 }}
+          className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 items-start"
         >
-          Work <span className="gradient-text">Experience</span>
-        </motion.h2>
+          {/* LEFT */}
+          <div>
+            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-500/20 bg-slate-900/60 text-cyan-400">
+              <FaBriefcase size={20} />
+            </div>
 
-        <div className="relative border-l border-blue-500/40 ml-4">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -25 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative pl-10 pb-12"
-            >
-              {/* Timeline Dot */}
-              <div
-                className="
-                  absolute
-                  -left-2.25
-                  top-2
-                  h-4
-                  w-4
-                  rounded-full
-                  bg-blue-500
-                "
-              />
+            <p className="text-cyan-400 font-medium mt-6">
+              {experience.duration}
+            </p>
 
-              <div className="glass rounded-2xl p-6">
-                <h3 className="text-2xl font-bold">
-                  {exp.role}
-                </h3>
+            <h3 className="text-3xl font-bold text-white mt-2">
+              {experience.role}
+            </h3>
 
-                <p className="text-cyan-400 mt-1">
-                  {exp.company}
-                </p>
+            <p className="text-lg text-slate-400 mt-3">
+              {experience.company}
+            </p>
 
-                <p className="text-slate-400 mt-2 text-sm">
-                  {exp.duration}
-                </p>
+            <div className="flex flex-wrap gap-3 mt-8">
+              {experience.tech.map((tech) => (
+                <span
+                  key={tech}
+                  className="
+                    px-4 py-2
+                    rounded-full
+                    border border-slate-800
+                    bg-slate-900/40
+                    text-sm text-slate-300
+                  "
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
 
-                <ul className="mt-5 space-y-3 text-slate-300">
-                  {exp.points.map((point) => (
-                    <li
-                      key={point}
-                      className="flex gap-3"
-                    >
-                      <span className="text-blue-400">
-                        ▹
-                      </span>
+          {/* RIGHT */}
+          <div>
+            <p className="text-lg text-slate-300 leading-8 mb-8">
+              Contributed to a real-world fitness platform,
+              building backend APIs and reusable frontend
+              components while working across the MERN stack.
+            </p>
 
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+            <div className="space-y-6">
+              {experience.points.map((point) => (
+                <div
+                  key={point}
+                  className="flex gap-4"
+                >
+                  <div className="mt-2 h-2 w-2 rounded-full bg-cyan-400 shrink-0" />
+
+                  <p className="text-slate-300 leading-7">
+                    {point}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

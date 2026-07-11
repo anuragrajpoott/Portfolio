@@ -1,99 +1,113 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import SectionTitle from "../ui/SectionTitle";
 import { projects } from "../../data/projects";
 
 function Projects() {
   return (
     <section id="projects" className="section-padding">
       <div className="container-custom">
-        <motion.h2
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-16"
-        >
-          Featured <span className="gradient-text">Projects</span>
-        </motion.h2>
+        <div className="text-center mb-20">
+          <SectionTitle
+            title="Featured"
+            highlight="Projects"
+          />
 
-        <div className="space-y-28">
+          <p className="max-w-2xl mx-auto text-slate-400 mt-6">
+            A selection of projects focused on full-stack
+            development, scalable architecture, and
+            real-world problem solving.
+          </p>
+        </div>
+
+        <div className="space-y-32">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
               className={`
-                grid lg:grid-cols-2 gap-12 items-center
-                ${index % 2 !== 0 ? "lg:[&>*:first-child]:order-2" : ""}
+                grid lg:grid-cols-[1.1fr_0.9fr]
+                gap-14
+                items-center
+                ${
+                  index % 2 !== 0
+                    ? "lg:[&>*:first-child]:order-2"
+                    : ""
+                }
               `}
             >
-              {/* Image */}
-              <div className="group">
+              {/* PROJECT IMAGE */}
+              <div className="group overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/30">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="
-                    rounded-3xl
-                    border border-white/10
-                    shadow-2xl
-                    group-hover:scale-[1.02]
-                    transition-all duration-500
+                    w-full
+                    transition-transform
+                    duration-700
+                    group-hover:scale-105
                   "
                 />
               </div>
 
-              {/* Content */}
+              {/* CONTENT */}
               <div>
-                <p className="text-cyan-400 font-medium mb-3">
-                  Featured Project
+                <p className="text-cyan-400 font-medium mb-4">
+                  Case Study #{index + 1}
                 </p>
 
-                <h3 className="text-3xl md:text-4xl font-bold mb-5">
+                <h3 className="text-3xl md:text-4xl font-bold text-white">
                   {project.title}
                 </h3>
 
-                <div className="glass rounded-2xl p-6 mb-6">
-                  <p className="text-slate-300 leading-8">
-                    {project.description}
-                  </p>
-                </div>
+                <p className="text-slate-300 leading-8 mt-6">
+                  {project.description}
+                </p>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-3 mb-8">
-                  {project.tech.map((item) => (
+                {/* TECH */}
+                <div className="flex flex-wrap gap-3 mt-8">
+                  {project.tech.map((tech) => (
                     <span
-                      key={item}
+                      key={tech}
                       className="
                         px-4 py-2
                         rounded-full
-                        glass
-                        text-sm
-                        text-slate-300
+                        border border-slate-800
+                        bg-slate-900/40
+                        text-sm text-slate-300
                       "
                     >
-                      {item}
+                      {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Buttons */}
-                <div className="flex flex-wrap gap-4">
+                {/* ACTIONS */}
+                <div className="flex flex-wrap gap-4 mt-10">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
                     className="
                       flex items-center gap-2
-                      glass
-                      px-6 py-3
+                      px-5 py-3
                       rounded-xl
-                      hover:-translate-y-1
+                      border border-slate-800
+                      bg-slate-900/40
+                      text-slate-300
+                      hover:border-cyan-500/30
+                      hover:text-white
                       transition-all
                     "
                   >
                     <FaGithub />
-                    GitHub
+                    Source Code
                   </a>
 
                   <a
@@ -102,11 +116,12 @@ function Projects() {
                     rel="noreferrer"
                     className="
                       flex items-center gap-2
-                      px-6 py-3
+                      px-5 py-3
                       rounded-xl
                       bg-linear-to-r
-                      from-blue-600
-                      to-purple-600
+                      from-cyan-500
+                      to-blue-600
+                      text-white
                       hover:-translate-y-1
                       transition-all
                     "

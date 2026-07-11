@@ -8,6 +8,7 @@ import Achievements from "./components/sections/Achievements";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
+import ProjectArchive from "./components/sections/projectArchieve";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
 
           <section id="projects">
             <Projects />
+            <ProjectArchive/>
           </section>
 
           <section id="contact">
