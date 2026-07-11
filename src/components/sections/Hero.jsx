@@ -1,239 +1,119 @@
 import { motion } from "framer-motion";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaLaptopCode,
-  FaCode,
-} from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
-
-const stats = [
-  "500+ DSA Problems",
-  "SIH Finalist",
-  "SDE Intern",
-  "10+ Projects",
-];
+import { ArrowRight, FileText } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 function Hero() {
   return (
-    <section className="min-h-screen flex items-center section-padding pt-32">
+    <section
+      id="home"
+      className="section-padding flex min-h-screen items-center pt-32"
+    >
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-cyan-400 uppercase tracking-[0.2em] font-medium mb-5">
-              Full Stack Software Engineer
-            </p>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl"
+        >
+          <p className="mb-6 text-sm font-medium text-zinc-500">
+            Software Engineer • IET DAVV '26
+          </p>
 
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
-              Hi, I'm{" "}
-              <span className="gradient-text">
-                Anurag
-              </span>
-            </h1>
+          <h1 className="max-w-4xl text-5xl font-semibold tracking-tight md:text-7xl">
+            Building modern web products with clean code and real-world impact.
+          </h1>
 
-            <div className="flex flex-wrap gap-3 mt-6">
-              <span className="glass px-4 py-2 rounded-full text-sm">
-                MERN Stack Developer
-              </span>
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-zinc-600">
+            I'm Anurag Dangi, a software developer focused on full-stack
+            applications, AI-powered products, and scalable user experiences.
+            Currently building projects while preparing for software engineering
+            roles.
+          </p>
 
-              <span className="glass px-4 py-2 rounded-full text-sm">
-                Problem Solver
-              </span>
+          <div className="mt-10 flex flex-wrap gap-3 text-sm text-zinc-600">
+            <span>React</span>
+            <span>•</span>
+            <span>Node.js</span>
+            <span>•</span>
+            <span>Express</span>
+            <span>•</span>
+            <span>MongoDB</span>
+            <span>•</span>
+            <span>OpenAI</span>
+          </div>
 
-              <span className="glass px-4 py-2 rounded-full text-sm">
-                Software Engineer
-              </span>
+          <div className="mt-12 flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 rounded-full bg-zinc-950 px-5 py-3 text-sm font-medium text-white transition hover:opacity-90"
+            >
+              View Work
+              <ArrowRight size={16} />
+            </a>
+
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-5 py-3 text-sm font-medium transition hover:bg-zinc-50"
+            >
+              Resume
+              <FileText size={16} />
+            </a>
+          </div>
+
+          <div className="mt-16 grid gap-6 border-t border-zinc-200 pt-8 md:grid-cols-4">
+            <div>
+              <p className="text-2xl font-semibold">500+</p>
+              <p className="mt-1 text-sm text-zinc-600">
+                DSA Problems Solved
+              </p>
             </div>
 
-            <p className="text-slate-400 text-lg leading-relaxed mt-8 max-w-xl">
-              Software Developer passionate about building scalable
-              full-stack applications using React.js, Node.js,
-              Express.js, and MongoDB. Solved 500+ DSA problems and
-              enjoy turning ideas into production-ready products.
-            </p>
-
-            {/* Buttons */}
-            <div className="flex flex-wrap gap-4 mt-10">
-              <a
-                href="#projects"
-                className="
-                  px-7 py-3
-                  rounded-xl
-                  bg-linear-to-r
-                  from-cyan-500
-                  via-blue-500
-                  to-purple-500
-                  font-semibold
-                  hover:scale-105
-                  transition-all
-                "
-              >
-                View Projects
-              </a>
-
-              <a
-                href="/resume.pdf"
-                download
-                className="
-                  glass
-                  px-7 py-3
-                  rounded-xl
-                  font-semibold
-                  hover:scale-105
-                  transition-all
-                "
-              >
-                Download Resume
-              </a>
+            <div>
+              <p className="text-2xl font-semibold">SIH</p>
+              <p className="mt-1 text-sm text-zinc-600">
+                Finalist
+              </p>
             </div>
 
-            {/* Socials */}
-            <div className="flex items-center gap-5 mt-8">
-              <a
-                href="https://github.com/anuragrajpoott"
-                target="_blank"
-                rel="noreferrer"
-                className="text-slate-400 hover:text-white transition"
-              >
-                <FaGithub size={28} />
-              </a>
-
-              <a
-                href="https://linkedin.com/in/anuragrajpoott"
-                target="_blank"
-                rel="noreferrer"
-                className="text-slate-400 hover:text-blue-400 transition"
-              >
-                <FaLinkedin size={28} />
-              </a>
-
-              <a
-                href="https://leetcode.com/u/anuragrajpoott"
-                target="_blank"
-                rel="noreferrer"
-                className="text-slate-400 hover:text-yellow-400 transition"
-              >
-                <SiLeetcode size={28} />
-              </a>
+            <div>
+              <p className="text-2xl font-semibold">1</p>
+              <p className="mt-1 text-sm text-zinc-600">
+                SDE Internship
+              </p>
             </div>
 
-            {/* Stats */}
-            <div className="flex flex-wrap gap-3 mt-10">
-              {stats.map((item) => (
-                <div
-                  key={item}
-                  className="
-                    glass
-                    rounded-xl
-                    px-4
-                    py-3
-                    text-sm
-                    font-medium
-                    text-slate-300
-                  "
-                >
-                  {item}
-                </div>
-              ))}
+            <div>
+              <p className="text-2xl font-semibold">10+</p>
+              <p className="mt-1 text-sm text-zinc-600">
+                Projects Built
+              </p>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right Side */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            className="flex justify-center"
-          >
-            <div className="relative">
-              {/* Glow */}
-              <div
-                className="
-                  absolute
-                  inset-0
-                  blur-3xl
-                  bg-linear-to-r
-                  from-cyan-500/30
-                  via-blue-500/30
-                  to-purple-500/30
-                  rounded-full
-                "
-              />
+          <div className="mt-10 flex items-center gap-5">
+            <a
+              href="https://github.com/anuragrajpoott"
+              target="_blank"
+              rel="noreferrer"
+              className="text-zinc-500 transition hover:text-zinc-950"
+              aria-label="GitHub"
+            >
+              <FaGithub size={20} />
+            </a>
 
-              {/* Image Container */}
-              <div
-                className="
-                  relative
-                  w-72
-                  h-72
-                  md:w-96
-                  md:h-96
-                  rounded-full
-                  p-1
-                  bg-linear-to-r
-                  from-cyan-500
-                  via-blue-500
-                  to-purple-500
-                "
-              >
-                <div
-                  className="
-                    w-full
-                    h-full
-                    rounded-full
-                    bg-slate-900
-                    flex
-                    items-center
-                    justify-center
-                  "
-                >
-                  <FaLaptopCode
-                    className="text-slate-500"
-                    size={110}
-                  />
-                </div>
-              </div>
-
-              {/* Floating Cards */}
-              <div
-                className="
-                  hidden md:flex
-                  items-center gap-2
-                  absolute
-                  -left-8
-                  top-16
-                  glass
-                  px-4 py-3
-                  rounded-xl
-                "
-              >
-                <FaCode />
-                <span className="text-sm">React Developer</span>
-              </div>
-
-              <div
-                className="
-                  hidden md:flex
-                  items-center gap-2
-                  absolute
-                  -right-8
-                  bottom-16
-                  glass
-                  px-4 py-3
-                  rounded-xl
-                "
-              >
-                <SiLeetcode />
-                <span className="text-sm">500+ Problems</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+            <a
+              href="https://linkedin.com/in/anuragrajpoott"
+              target="_blank"
+              rel="noreferrer"
+              className="text-zinc-500 transition hover:text-zinc-950"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={20} />
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

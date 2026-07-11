@@ -1,137 +1,100 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import SectionTitle from "../ui/SectionTitle";
-import { projects } from "../../data/projects";
+import { ArrowUpRight } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
+
+const projects = [
+  {
+    title: "StudyNotion",
+    description:
+      "A full-stack learning management platform with authentication, course management, video content delivery, and payment integration.",
+    tech: ["React", "Node.js", "Express", "MongoDB"],
+    github: "#",
+    live: "#",
+  },
+  {
+    title: "TruthLens",
+    description:
+      "AI-powered news credibility analyzer that evaluates articles, extracts claims, and helps users identify potentially misleading content.",
+    tech: ["React", "OpenAI", "Node.js", "MongoDB"],
+    github: "#",
+    live: "#",
+  },
+];
 
 function Projects() {
   return (
     <section id="projects" className="section-padding">
       <div className="container-custom">
-        <div className="text-center mb-20">
-          <SectionTitle
-            title="Featured"
-            highlight="Projects"
-          />
+        <div className="mb-20 max-w-3xl">
+          <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
+            Selected Work
+          </h2>
 
-          <p className="max-w-2xl mx-auto text-slate-400 mt-6">
-            A selection of projects focused on full-stack
-            development, scalable architecture, and
-            real-world problem solving.
+          <p className="mt-6 text-lg leading-8 text-zinc-600">
+            Projects focused on full-stack development, AI-powered experiences,
+            and building products that solve real-world problems.
           </p>
         </div>
 
-        <div className="space-y-32">
+        <div className="divide-y divide-zinc-200 border-y border-zinc-200">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.article
               key={project.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className={`
-                grid lg:grid-cols-[1.1fr_0.9fr]
-                gap-14
-                items-center
-                ${
-                  index % 2 !== 0
-                    ? "lg:[&>*:first-child]:order-2"
-                    : ""
-                }
-              `}
+              transition={{ duration: 0.4 }}
+              className="grid gap-8 py-12 lg:grid-cols-[1.5fr_1fr]"
             >
-              {/* PROJECT IMAGE */}
-              <div className="group overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/30">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="
-                    w-full
-                    transition-transform
-                    duration-700
-                    group-hover:scale-105
-                  "
-                />
-              </div>
-
-              {/* CONTENT */}
               <div>
-                <p className="text-cyan-400 font-medium mb-4">
-                  Case Study #{index + 1}
-                </p>
+                <div className="mb-4 text-sm text-zinc-500">
+                  0{index + 1}
+                </div>
 
-                <h3 className="text-3xl md:text-4xl font-bold text-white">
+                <h3 className="text-2xl font-semibold tracking-tight">
                   {project.title}
                 </h3>
 
-                <p className="text-slate-300 leading-8 mt-6">
+                <p className="mt-4 max-w-2xl leading-7 text-zinc-600">
                   {project.description}
                 </p>
+              </div>
 
-                {/* TECH */}
-                <div className="flex flex-wrap gap-3 mt-8">
+              <div className="flex flex-col justify-between">
+                <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="
-                        px-4 py-2
-                        rounded-full
-                        border border-slate-800
-                        bg-slate-900/40
-                        text-sm text-slate-300
-                      "
+                      className="rounded-full border border-zinc-200 px-3 py-1 text-sm text-zinc-600"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* ACTIONS */}
-                <div className="flex flex-wrap gap-4 mt-10">
+                <div className="mt-8 flex gap-6">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="
-                      flex items-center gap-2
-                      px-5 py-3
-                      rounded-xl
-                      border border-slate-800
-                      bg-slate-900/40
-                      text-slate-300
-                      hover:border-cyan-500/30
-                      hover:text-white
-                      transition-all
-                    "
+                    className="inline-flex items-center gap-2 text-sm text-zinc-600 transition hover:text-zinc-950"
                   >
-                    <FaGithub />
-                    Source Code
+                    <FaGithub size={16} />
+                    GitHub
                   </a>
 
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="
-                      flex items-center gap-2
-                      px-5 py-3
-                      rounded-xl
-                      bg-linear-to-r
-                      from-cyan-500
-                      to-blue-600
-                      text-white
-                      hover:-translate-y-1
-                      transition-all
-                    "
+                    className="inline-flex items-center gap-2 text-sm text-zinc-950 transition hover:opacity-70"
                   >
-                    <FaExternalLinkAlt />
-                    Live Demo
+                    Live
+                    <ArrowUpRight size={16} />
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

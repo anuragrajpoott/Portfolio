@@ -1,52 +1,50 @@
-import { useState } from "react";
-import { HiMenu, HiX } from "react-icons/hi";
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
-  { name: "Achievements", href: "#achievements" },
+  { name: "Experience", href: "#experience" },
+  { name: "Impact", href: "#impact" },
+  { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
 ];
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 12);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-slate-950/70 border-b border-white/10">
-      <div className="container-custom flex items-center justify-between px-6 py-4">
-        {/* Logo */}
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-zinc-200/80 bg-white/80 backdrop-blur-md"
+          : "bg-white"
+      }`}
+    >
+      <div className="mx-auto flex h-18 max-w-5xl items-center justify-between px-6">
         <a
           href="#home"
-          className="font-bold text-xl md:text-2xl tracking-wide"
+          className="font-medium tracking-tight text-zinc-950"
         >
-          <span className="gradient-text">Anurag</span>
+          AD
         </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="
-                relative
-                text-slate-300
-                hover:text-white
-                transition-all
-                duration-300
-                after:absolute
-                after:left-0
-                after:-bottom-1
-                after:h-0.5
-                after:w-0
-                after:bg-cyan-400
-                after:transition-all
-                after:duration-300
-                hover:after:w-full
-              "
+              className="text-sm text-zinc-500 transition-colors hover:text-zinc-950"
             >
               {link.name}
             </a>
@@ -54,51 +52,32 @@ function Navbar() {
 
           <a
             href="/resume.pdf"
-            download
-            className="
-              px-5
-              py-2.5
-              rounded-xl
-              bg-linear-to-r
-              from-cyan-500
-              via-blue-500
-              to-purple-500
-              text-white
-              font-medium
-              hover:scale-105
-              transition-all
-              duration-300
-            "
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium transition hover:bg-zinc-50"
           >
             Resume
           </a>
-        </div>
+        </nav>
 
-        {/* Mobile Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-3xl text-white"
+          className="md:hidden"
           aria-label="Toggle Menu"
         >
-          {isOpen ? <HiX /> : <HiMenu />}
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden glass border-t border-white/10">
-          <div className="flex flex-col items-center gap-6 py-8">
+        <div className="border-t border-zinc-200 bg-white md:hidden">
+          <div className="flex flex-col px-6 py-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="
-                  text-slate-300
-                  hover:text-white
-                  transition-colors
-                  duration-300
-                "
+                className="py-3 text-sm text-zinc-600"
               >
                 {link.name}
               </a>
@@ -106,25 +85,16 @@ function Navbar() {
 
             <a
               href="/resume.pdf"
-              download
-              className="
-                px-5
-                py-2.5
-                rounded-xl
-                bg-linear-to-r
-                from-cyan-500
-                via-blue-500
-                to-purple-500
-                text-white
-                font-medium
-              "
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 rounded-full border border-zinc-200 px-4 py-3 text-center text-sm font-medium"
             >
               Resume
             </a>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 }
 

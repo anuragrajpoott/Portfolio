@@ -1,23 +1,14 @@
 function Footer() {
   return (
-    <footer className="border-t border-slate-800">
-      <div className="container-custom py-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>
-            <h3 className="font-semibold text-white">
-              Anurag Dangi
-            </h3>
+    <footer className="border-t border-zinc-200">
+      <div className="container-custom flex flex-col justify-between gap-4 py-8 text-sm text-zinc-500 md:flex-row md:items-center">
+        <p>
+          Anurag Dangi · Software Engineer
+        </p>
 
-            <p className="text-sm text-slate-500 mt-1">
-              Software Development Engineer • Full Stack Developer
-            </p>
-          </div>
-
-          <p className="text-sm text-slate-500 text-center md:text-right">
-            © {new Date().getFullYear()} Anurag Dangi. Crafted with
-            attention to detail.
-          </p>
-        </div>
+        <p>
+          © {new Date().getFullYear()}
+        </p>
       </div>
     </footer>
   );

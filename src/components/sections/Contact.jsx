@@ -1,118 +1,70 @@
 import { motion } from "framer-motion";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-} from "react-icons/fa";
-import SectionTitle from "../ui/SectionTitle";
-
-const socialLinks = [
-  {
-    icon: FaEnvelope,
-    href: "mailto:anuragrajpoot2468@gmail.com",
-    label: "Email",
-  },
-  {
-    icon: FaLinkedin,
-    href: "YOUR_LINKEDIN_URL",
-    label: "LinkedIn",
-  },
-  {
-    icon: FaGithub,
-    href: "YOUR_GITHUB_URL",
-    label: "GitHub",
-  },
-];
+import { Mail, ArrowUpRight } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 function Contact() {
   return (
     <section id="contact" className="section-padding">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
+          transition={{ duration: 0.4 }}
+          className="border-t border-zinc-200 pt-20"
         >
-          <SectionTitle
-            title="Open To"
-            highlight="Opportunities"
-          />
+          <div className="max-w-3xl">
+            <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
+              Let's build something meaningful.
+            </h2>
 
-          <p className="text-lg text-slate-400 leading-8 max-w-2xl mx-auto mt-8">
-            I'm currently seeking Software Development
-            Engineer and Full Stack Developer opportunities
-            where I can contribute, learn from experienced
-            teams, and build impactful products.
-          </p>
+            <p className="mt-6 text-lg leading-8 text-zinc-600">
+              I'm currently looking for Software Engineer and Full Stack
+              Developer opportunities. If you think I'd be a good fit for your
+              team, I'd love to hear from you.
+            </p>
 
-          <div className="mt-12 flex flex-wrap justify-center gap-4">
-            <a
-              href="mailto:anuragrajpoot2468@gmail.com"
-              className="
-                px-8 py-4
-                rounded-xl
-                bg-linear-to-r
-                from-cyan-500
-                to-blue-600
-                text-white
-                font-semibold
-                hover:-translate-y-1
-                transition-all
-              "
-            >
-              Get In Touch
-            </a>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="mailto:anuragrajpoot2468@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full bg-zinc-950 px-5 py-3 text-sm font-medium text-white transition hover:opacity-90"
+              >
+                <Mail size={16} />
+                Get in Touch
+              </a>
 
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="
-                px-8 py-4
-                rounded-xl
-                border border-slate-800
-                bg-slate-900/40
-                text-slate-300
-                hover:text-white
-                hover:border-cyan-500/30
-                transition-all
-              "
-            >
-              View Resume
-            </a>
-          </div>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-5 py-3 text-sm font-medium transition hover:bg-zinc-50"
+              >
+                Resume
+                <ArrowUpRight size={16} />
+              </a>
+            </div>
 
-          <div className="flex justify-center gap-5 mt-12">
-            {socialLinks.map((item) => {
-              const Icon = item.icon;
+            <div className="mt-10 flex items-center gap-6">
+              <a
+                href="https://github.com/anuragrajpoott"
+                target="_blank"
+                rel="noreferrer"
+                className="text-zinc-600 transition hover:text-zinc-950"
+                aria-label="GitHub"
+              >
+                <FaGithub size={20} />
+              </a>
 
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={item.label}
-                  className="
-                    h-12 w-12
-                    rounded-xl
-                    border border-slate-800
-                    bg-slate-900/40
-                    flex items-center justify-center
-                    text-slate-400
-                    hover:text-white
-                    hover:border-cyan-500/30
-                    transition-all
-                  "
-                >
-                  <Icon size={20} />
-                </a>
-              );
-            })}
+              <a
+                href="https://linkedin.com/in/anuragrajpoott"
+                target="_blank"
+                rel="noreferrer"
+                className="text-zinc-600 transition hover:text-zinc-950"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin size={20} />
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>
