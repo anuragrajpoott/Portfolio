@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, FileText } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import profilePic from "../assets/profile.jpeg"; // Adjust the path as necessary
 
 function Hero() {
   return (
@@ -138,9 +139,9 @@ function Hero() {
 
               {/* Profile Image */}
               <img
-                src="/profile.jpg"
+                src={profilePic}
                 alt="Anurag Dangi"
-                className="relative h-72 w-72 rounded-full border border-zinc-200 object-cover md:h-80 md:w-80 lg:h-[380px] lg:w-[380px]"
+                className="relative h-72 w-72 rounded-full border border-zinc-200 object-cover md:h-80 md:w-80 lg:h-95 lg:w-95"
               />
 
               {/* Floating Badge */}

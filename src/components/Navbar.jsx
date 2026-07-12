@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "../assets/logo.png";
+import resumePdf from "../assets/Anurag_Dangi_SDE_Resume.pdf";
 
 const navLinks = [
   { name: "Projects", href: "#projects" },
@@ -32,13 +34,16 @@ function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-18 max-w-5xl items-center justify-between px-6">
-        <a
-          href="#home"
-          className="font-medium tracking-tight text-zinc-950"
-        >
-          AD
+        {/* Logo */}
+        <a href="#home" className="flex items-center">
+          <img
+            src={logo}
+            alt="Anurag Dangi Logo"
+            className="h-10 w-auto transition-transform duration-300 hover:scale-105"
+          />
         </a>
 
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
@@ -51,7 +56,7 @@ function Navbar() {
           ))}
 
           <a
-            href="/resume.pdf"
+            href={resumePdf}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium transition hover:bg-zinc-50"
@@ -60,6 +65,7 @@ function Navbar() {
           </a>
         </nav>
 
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden"
@@ -69,6 +75,7 @@ function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Navigation */}
       {isOpen && (
         <div className="border-t border-zinc-200 bg-white md:hidden">
           <div className="flex flex-col px-6 py-6">
@@ -84,7 +91,7 @@ function Navbar() {
             ))}
 
             <a
-              href="/resume.pdf"
+              href={resumePdf}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 rounded-full border border-zinc-200 px-4 py-3 text-center text-sm font-medium"

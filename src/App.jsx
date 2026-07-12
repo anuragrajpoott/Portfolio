@@ -1,11 +1,11 @@
-import Navbar from "./components/sections/Navbar";
-import Hero from "./components/sections/Hero";
-import Projects from "./components/sections/Projects";
-import Experience from "./components/sections/Experience";
-import Impact from "./components/sections/Impact";
-import About from "./components/sections/About";
-import Contact from "./components/sections/Contact";
-import Footer from "./components/sections/Footer";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Projects from "./components/Projects";
+import Experience from "./components/Experience";
+import Impact from "./components/Impact";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
