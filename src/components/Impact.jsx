@@ -1,66 +1,63 @@
 import { motion } from "framer-motion";
 
-const achievements = [
+const ACHIEVEMENTS = [
   {
     value: "500+",
     label: "DSA Problems Solved",
   },
   {
-    value: "SIH",
-    label: "Smart India Hackathon Finalist",
+    value: "Finalist",
+    label: "Smart India Hackathon 2024",
   },
   {
-    value: "State",
-    label: "Basketball Team Captain",
+    value: "Captain",
+    label: "State Basketball Team",
   },
   {
-    value: "Event",
-    label: "Head, Pratyaksh Drama Society",
+    value: "Head of Events",
+    label: "Pratyaksh Drama Society",
   },
 ];
 
 function Impact() {
   return (
-    <section
-      id="impact"
-      className="section-padding"
-    >
+    <section id="impact" className="section-padding">
       <div className="container-custom">
         <div className="mb-20 max-w-3xl">
-          <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
-            Impact
-          </h2>
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-zinc-500">
+            Highlights
+          </p>
 
-          <p className="mt-6 text-lg leading-8 text-zinc-600">
-            A few highlights that reflect my technical growth,
-            leadership experience, and competitive achievements.
+          <h2 className="section-title">Impact Beyond Code</h2>
+
+          <p className="section-subtitle">
+            Technical achievements, competitive milestones, and leadership
+            experiences that reflect continuous learning, collaboration, and
+            problem-solving.
           </p>
         </div>
 
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-200 md:grid-cols-2">
-          {achievements.map((item, index) => (
-            <motion.div
-              key={item.label}
+        <div className="grid gap-6 md:grid-cols-2">
+          {ACHIEVEMENTS.map((achievement, index) => (
+            <motion.article
+              key={achievement.label}
               initial={{ opacity: 0, y: 24 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.4,
-                delay: index * 0.05,
+                delay: index * 0.06,
               }}
-              className="bg-white p-8"
+              className="rounded-3xl border border-zinc-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-300 hover:shadow-lg"
             >
-              <p className="text-3xl font-semibold">
-                {item.value}
+              <p className="text-4xl font-semibold tracking-tight text-zinc-950">
+                {achievement.value}
               </p>
 
-              <p className="mt-3 text-zinc-600">
-                {item.label}
+              <p className="mt-3 leading-7 text-zinc-600">
+                {achievement.label}
               </p>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
