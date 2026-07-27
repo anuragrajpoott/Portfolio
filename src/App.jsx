@@ -1,11 +1,12 @@
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Experience from "./components/Experience";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Impact from "./components/Impact";
-import Navbar from "./components/Navbar";
-import Projects from "./components/Projects";
+import About from "./components/sections/About";
+import Contact from "./components/sections/Contact";
+import Experience from "./components/sections/Experience";
+import Hero from "./components/sections/Hero";
+import Projects from "./components/sections/projects/Projects";
+import Skills from "./components/sections/Skills";
+
+import Footer from "./components/layout/Footer";
+import Navbar from "./components/layout/Navbar";
 
 function App() {
   return (
@@ -14,10 +15,10 @@ function App() {
 
       <main>
         <Hero />
+        <About />
+        <Skills />
         <Projects />
         <Experience />
-        <Impact />
-        <About />
         <Contact />
       </main>
 
